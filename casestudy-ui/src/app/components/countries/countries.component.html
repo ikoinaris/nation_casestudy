@@ -1,0 +1,10 @@
+<h3>Countries</h3>
+<div class="card my-5">
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let country of countriesList" (click)="onSelect(country)">
+        <h5>Name: {{country.name}}, Area: {{country.area}}, Country Code 2: {{country.country_code2}}</h5>
+      </li>
+    </ul>
+  </div>
+</div>
