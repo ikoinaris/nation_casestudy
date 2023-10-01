@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {CountriesService} from "../../services/countries.service";
-import {Observable, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {Languages} from "../../models/languages";
-import {Country} from "../../models/country";
 
 @Component({
   selector: 'app-country-languages',
@@ -12,7 +11,7 @@ import {Country} from "../../models/country";
 })
 export class CountryLanguagesComponent implements OnInit {
 
-  @Input() countryId = '';
+  @Input() countryId: string | any;
   languages : Subscription;
   spokenLanguages: Languages[] = [];
 

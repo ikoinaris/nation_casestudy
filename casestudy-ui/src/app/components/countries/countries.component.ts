@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Country} from "../../models/country";
-import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {CountriesService} from "../../services/countries.service";
 import {Router} from "@angular/router";
+import {CountryLanguagesComponent} from "../country-languages/country-languages.component";
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.css']
 })
-export class CountriesComponent implements OnInit {
+export class CountriesComponent implements OnInit  {
 
+  countryId: string = "";
   countries : Subscription;
   countriesList : Country[] = [];
 
@@ -25,6 +27,6 @@ export class CountriesComponent implements OnInit {
   reloadData() { this.countries = this.countryService.getAllCountries().subscribe(countries => this.countriesList = countries); }
 
   onSelect(country: Country) {
-    let countryId = country.id;
+    this.router.navigate(["/countries/" +country.id+ "/languages"])
   }
 }
