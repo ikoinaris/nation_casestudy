@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/countries/stats")
@@ -34,7 +33,7 @@ public class CountryStatsController {
         return entry;
     }
 
-    @GetMapping("/12")
+    @GetMapping
     public List<Map<Country, CountryStats>> getCountryStats() {
         Map countryStats = new HashMap();
         List<Map<Country, CountryStats>> countryStatsList = new ArrayList<>();
